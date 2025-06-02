@@ -67,6 +67,7 @@
     justify-content: center;
     left: 0;
     margin: 0;
+    padding-bottom: 8vh;
 }
 
 .slider-images{
@@ -78,7 +79,7 @@
 .slider-controls{
     display: flex;
     justify-content: center;
-    gap: 0.7rem;
+    gap: 0.5rem;
 }
 
 
@@ -86,7 +87,7 @@
     width: 14px;
     height: 14px;
     background-color: #DFF3FF;
-    border-color: none;
+    border-color: #bbcdd8;
     border-radius: 50%;
     transition: background-color 0.3s ease;
     cursor: pointer;
@@ -98,9 +99,9 @@
 }
 
 .slider-images img{
-    width: 99vw;
-    max-height: 500px;
-    max-width: 1200px;
+    width: 100vw;
+    max-height: 80vh;
+    max-width: 100vw;
 }
 
 </style>

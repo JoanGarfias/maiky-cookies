@@ -1,24 +1,62 @@
 <script setup lang="ts">
     import Logo from '@/assets/Logo.svg';
     import Cart from '@/assets/Cart.svg';
-    import {ref} from 'vue';
+    import Close from '@/assets/Close.svg';
+    import Home from '@/assets/Home.svg';
+    import Phone from '@/assets/Phone.svg';
+    import Cookie from '@/assets/Cookie.svg';
+    import Menu from '@/assets/Menu.svg';
+
+    import {onMounted, onUnmounted, ref} from 'vue';
 
     const menuOpen = ref<boolean>(true);
+    const menuRef = ref<HTMLElement | null>(null);
 
     const toggleMenu = () => {
         menuOpen.value = !menuOpen.value;
     }
+
+    const clickOutMenu = (event: MouseEvent) => {
+        if(menuRef.value && !menuRef.value.contains(event.target as Node)){ //Detecta si se da click sobre otra cosa que no sea un click
+            menuOpen.value = false;
+        }
+    }
+
+    const esMobile = () : boolean => window.innerWidth <= 768;
+
+    onMounted( () => {
+        if(esMobile)
+            document.addEventListener('click', clickOutMenu);
+    });
+
+    onUnmounted( () => {
+        if(esMobile)
+            document.removeEventListener('click', clickOutMenu);
+    })
 </script>
 
 <template>
     <nav>
-        <button class="hamburger" @click="toggleMenu">☰</button>
+        <button class="hamburger" @click="toggleMenu" ref="menuRef">
+            <Menu class="menu-icon" v-show="!menuOpen"></Menu>
+            <Close class="menu-icon" v-show="menuOpen"></Close>
+        </button>
+        
         <Logo class="logo-icon"/>
         <transition name="slide-fade">
             <ul class="nav-list" v-show="menuOpen">
-                <li><a>Inicio</a></li>
-                <li><a>Catálogo</a></li>
-                <li><a>Contacto</a></li>
+                <li>
+                    <Home />
+                    <a>Inicio</a>
+                </li>
+                <li>
+                    <Cookie />
+                    <a>Catálogo</a>
+                </li>
+                <li>
+                    <Phone />
+                    <a>Contacto</a>
+                </li>
             </ul>
         </transition>
         <div class="cart-opcion">
@@ -46,9 +84,9 @@ nav{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 1vh;
 }
 
 ul{
@@ -71,6 +109,22 @@ ul a:hover{
     gap: 60px;
 }
 
+.nav-list li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-list li:hover{
+    background-color: hsla(222, 85%, 34%, 0.2);
+    transform: scale(1.2);
+  }
+
+.nav-list li svg{
+    fill: var(--color-primary);
+}
+
 .cart-opcion{
     display: flex;
     align-items: center;
@@ -88,6 +142,12 @@ ul a:hover{
     height: 108px;
 }
 
+.menu-icon{
+    fill: var(--color-primary);
+    width: 48px;
+    height: 48px;
+}
+
 .cart-icon{
     align-items: center;
     width: 48px;
@@ -100,6 +160,7 @@ ul a:hover{
     cursor: pointer;
     font-size: 34px;
     display: none;
+    align-items: center;
 }
 
 @media (max-width: 768px){
@@ -122,7 +183,6 @@ ul a:hover{
     .logo-icon{
         position: absolute;
         width: 128px;
-        height: 128px;
         left: 50%;
         transform: translateX(-50%);
         padding: 0 10px;
@@ -149,6 +209,10 @@ ul a:hover{
     .cart-icon{
         width: 40px;
         height: 40px;
+    }
+
+    .cart-icon:hover{
+        cursor: pointer;
     }
 
 
