@@ -86,7 +86,8 @@ nav{
     justify-content: space-between;
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 1vh;
+    margin-top: 1vh;
+    height: 15vh;
 }
 
 ul{
