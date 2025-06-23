@@ -11,6 +11,7 @@
 
     const menuOpen = ref<boolean>(true);
     const menuRef = ref<HTMLElement | null>(null);
+    const screenSize = ref<number>(window.innerWidth);
 
     const toggleMenu = () => {
         menuOpen.value = !menuOpen.value;
@@ -22,14 +23,20 @@
         }
     }
 
-    const esMobile = () : boolean => window.innerWidth <= 768;
+    const updateWidth = () => {
+        screenSize.value = window.innerWidth;
+    }
+
+    const esMobile = () : boolean => screenSize.value <= 768;
 
     onMounted( () => {
+        document.addEventListener('resize', updateWidth);
         if(esMobile())
             document.addEventListener('click', clickOutMenu);
     });
 
     onUnmounted( () => {
+        window.removeEventListener('resize', updateWidth)
         if(esMobile())
             document.removeEventListener('click', clickOutMenu);
     })
