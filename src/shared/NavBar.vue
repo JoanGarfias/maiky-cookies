@@ -25,12 +25,12 @@
     const esMobile = () : boolean => window.innerWidth <= 768;
 
     onMounted( () => {
-        if(esMobile)
+        if(esMobile())
             document.addEventListener('click', clickOutMenu);
     });
 
     onUnmounted( () => {
-        if(esMobile)
+        if(esMobile())
             document.removeEventListener('click', clickOutMenu);
     })
 </script>
@@ -39,23 +39,32 @@
     <nav>
         <button class="hamburger" @click="toggleMenu" ref="menuRef">
             <Menu class="menu-icon" v-show="!menuOpen"></Menu>
-            <Close class="menu-icon" v-show="menuOpen"></Close>
+            <Close class="menu-icon" :class="{ closeBtn: menuOpen}" v-show="menuOpen"></Close>
         </button>
         
-        <Logo class="logo-icon"/>
+        <RouterLink to="/">
+            <Logo class="logo-icon"/>
+        </RouterLink>
+        
         <transition name="slide-fade">
             <ul class="nav-list" v-show="menuOpen">
                 <li>
-                    <Home />
-                    <a>Inicio</a>
+                    <RouterLink to ="/">
+                        <Home />
+                        <p>Inicio</p>
+                    </RouterLink>
                 </li>
                 <li>
-                    <Cookie />
-                    <a>Catálogo</a>
+                    <RouterLink to="/catalogo">
+                        <Cookie />
+                        <p>Catálogo</p>
+                    </RouterLink>
                 </li>
                 <li>
-                    <Phone />
-                    <a>Contacto</a>
+                    <RouterLink to ="/contacto">
+                        <Phone />
+                        <p>Contacto</p>
+                    </RouterLink>
                 </li>
             </ul>
         </transition>
@@ -114,12 +123,14 @@ ul a:hover{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     transition: transform 0.3s ease;
 }
 
 .nav-list li:hover{
+    border-radius: 100px;
     background-color: hsla(222, 85%, 34%, 0.2);
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
 .nav-list li svg{
@@ -162,6 +173,10 @@ ul a:hover{
     font-size: 34px;
     display: none;
     align-items: center;
+}
+
+.closeBtn{
+    position: fixed;
 }
 
 @media (max-width: 768px){

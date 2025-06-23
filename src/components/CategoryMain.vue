@@ -5,29 +5,29 @@
         {
             nombre: "Galletas",
             img: "https://www.gourmet.cl/wp-content/uploads/2018/02/Galletas-2-1-570x458.jpg",
-            url: "facebook.com"
+            url: "/catalogo/galletas"
         },
         {
             nombre: "Alfajores",
             img: "https://www.gourmet.cl/wp-content/uploads/2018/02/Galletas-2-1-570x458.jpg",
-            url: "facebook.com"
+            url: "/catalogo/alfajores"
         },
         {
             nombre: "Roles",
             img: "https://www.gourmet.cl/wp-content/uploads/2018/02/Galletas-2-1-570x458.jpg",
-            url: "facebook.com"
+            url: "/catalogo/roles"
         },
         {
             nombre: "Cookie Cake",
             img: "https://www.gourmet.cl/wp-content/uploads/2018/02/Galletas-2-1-570x458.jpg",
-            url: "facebook.com"
+            url: "/catalogo/cookiecake"
         },
     ]
 
 </script>
 
 <template>
-    <main>
+    <main class="categories">
         <CardMain
             v-for="(category, index) in categories"
             :key="index"
@@ -41,5 +41,11 @@
 </template>
 
 <style scoped>
-
+    .categories{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
 </style>

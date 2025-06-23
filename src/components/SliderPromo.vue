@@ -99,9 +99,9 @@
 }
 
 .slider-images img{
-    width: 100vw;
+    width: 100%;
     max-height: 80vh;
-    max-width: 100vw;
+    max-width: 100%;
 }
 
 </style>

@@ -1,16 +1,13 @@
 <script setup lang="ts">
 // import { RouterLink, RouterView } from 'vue-router'
 import NavBar from '@/shared/NavBar.vue';
-import SliderPromo from '@/components/SliderPromo.vue';
-import CategoryMain from './components/CategoryMain.vue';
-
+import Footer from '@/shared/Footer.vue';
 </script>
 
 <template>
 <NavBar />
-<SliderPromo />
-<CategoryMain />
-
+<RouterView></RouterView>
+<Footer/>
 </template>
 
 <style scoped>
