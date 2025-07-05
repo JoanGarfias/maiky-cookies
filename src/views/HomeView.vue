@@ -8,7 +8,7 @@ import SliderPromo from '../components/SliderPromo.vue';
   <SliderPromo />
   <main>
     <div class="main-message">
-      <h1>Nuestros postres destacados</h1>
+      <h1>Nuestros postres destacadoss</h1>
       <h3>¿Cúal se te antoja hoy?</h3>
     </div>
     <CategoryMain />

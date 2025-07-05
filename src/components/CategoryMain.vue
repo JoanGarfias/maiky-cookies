@@ -1,25 +1,29 @@
 <script setup lang="ts">
     import CardMain from '@/components/CardMain.vue';
+    import GalletasImg from '@/assets/img/galletas.jpeg';
+    import AlfajoresImg from '@/assets/img/alfajores.jpeg';
+    import RolesImg from '@/assets/img/roles.jpeg';
+    import CookieCakeImg from '@/assets/img/cookiecake.jpeg';
 
     const categories = [
         {
             nombre: "Galletas",
-            img: "https://www.gourmet.cl/wp-content/uploads/2018/02/Galletas-2-1-570x458.jpg",
+            img: GalletasImg,
             url: "/catalogo/galletas"
         },
         {
             nombre: "Alfajores",
-            img: "https://www.gourmet.cl/wp-content/uploads/2018/02/Galletas-2-1-570x458.jpg",
+            img: AlfajoresImg,
             url: "/catalogo/alfajores"
         },
         {
             nombre: "Roles",
-            img: "https://www.gourmet.cl/wp-content/uploads/2018/02/Galletas-2-1-570x458.jpg",
+            img: RolesImg,
             url: "/catalogo/roles"
         },
         {
             nombre: "Cookie Cake",
-            img: "https://www.gourmet.cl/wp-content/uploads/2018/02/Galletas-2-1-570x458.jpg",
+            img: CookieCakeImg,
             url: "/catalogo/cookiecake"
         },
     ]

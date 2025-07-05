@@ -1,15 +1,55 @@
+<script setup lang="ts">
+  import FacebookIcon from '@/assets/Facebook.svg';
+  import InstagramIcon from '@/assets/Instagram.svg';
+</script>
+
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <div class="info">
+        <h1>Sobre nosotros</h1>
+        <p class="promo">Maiky Cookies es un negocio local de postres artesanales nacido en Santa María Mixtequilla, Hacemos los mejores postres con mucho amor</p>
+      </div>
+      <div class="media">
+        <h1>Conecta con nosotros</h1>
+        <p>Estamos para atenderte</p>
+        <div class="social">
+          <facebookIcon />
+          <instagramIcon />
+        </div>
+      </div>
   </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
+  .about{
+    min-height: 90vh;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info, .media{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
-}
+  .info{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .info h1, .media h1{
+    color: #1e194d;
+  }
+
+  .promo{
+    width: 50%;
+  }
+
+  .media{
+    margin-bottom: 5rem;
+  }
+
 </style>
