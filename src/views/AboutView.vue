@@ -13,8 +13,8 @@
         <h1>Conecta con nosotros</h1>
         <p>Estamos para atenderte</p>
         <div class="social">
-          <facebookIcon />
-          <instagramIcon />
+          <a href="https://www.facebook.com/share/1FguvuUuqT/?mibextid=wwXlfr"> <FacebookIcon /> </a>
+          <a href="https://www.instagram.com/maiky.cookies"> <InstagramIcon /> </a>
         </div>
       </div>
   </div>
@@ -45,7 +45,8 @@
   }
 
   .promo{
-    width: 50%;
+    width: 70%;
+    text-align: center;
   }
 
   .media{

@@ -12,8 +12,8 @@
         <div class="social">
             <h2>Redes sociales</h2>
             <div class="social-icons">
-                <FacebookIcon class="social-icon"/>
-                <InstagramIcon class="social-icon"/>
+              <a href="https://www.facebook.com/share/1FguvuUuqT/?mibextid=wwXlfr"> <FacebookIcon class="social-icon"/> </a>
+              <a href="https://www.instagram.com/maiky.cookies"> <InstagramIcon class="social-icon"/> </a>
             </div>
         </div>
         <div class="location">

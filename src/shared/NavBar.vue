@@ -43,16 +43,17 @@
 </script>
 
 <template>
+  <header>
     <nav>
         <button class="hamburger" @click="toggleMenu" ref="menuRef">
             <Menu class="menu-icon" v-show="!menuOpen"></Menu>
             <Close class="menu-icon" :class="{ closeBtn: menuOpen}" v-show="menuOpen"></Close>
         </button>
-        
+
         <RouterLink to="/">
             <Logo class="logo-icon"/>
         </RouterLink>
-        
+
         <transition name="slide-fade">
             <ul class="nav-list" v-show="menuOpen">
                 <li>
@@ -80,6 +81,7 @@
             <p class="cart-counter">2</p>
         </div>
     </nav>
+  </header>
 </template>
 
 
@@ -95,6 +97,13 @@
     --color-black: #191717;
 }
 
+header{
+  margin: 0;
+  padding: 0;
+  top: 0;
+  background-color: aliceblue;
+}
+
 nav{
     display: flex;
     flex-direction: row;
@@ -102,7 +111,6 @@ nav{
     justify-content: space-between;
     width: 90%;
     margin: 0 auto;
-    margin-top: 1vh;
     height: 15vh;
 }
 
@@ -136,7 +144,7 @@ ul a:hover{
 
 .nav-list li:hover{
     border-radius: 100px;
-    background-color: hsla(222, 85%, 34%, 0.2);
+    background-color: hsla(222, 57%, 58%, 0.3);
     transform: scale(1.1);
   }
 
@@ -226,7 +234,7 @@ ul a:hover{
         justify-content: center;
         background-color: aliceblue;
         z-index: 999;
-        
+
     }
 
     .cart-icon{
@@ -254,6 +262,10 @@ ul a:hover{
         opacity: 1;
         transform: translateX(0);
     }
+    .nav-list li:hover{
+      background-color: hsla(222, 57%, 58%, 0.3);
+    }
+
 }
 
 </style>
