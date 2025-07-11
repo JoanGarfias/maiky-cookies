@@ -22,4 +22,8 @@ import Footer from '@/shared/FooterComp.vue';
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  all:unset;
+}
+
 </style>

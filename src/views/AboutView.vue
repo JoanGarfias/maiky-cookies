@@ -13,8 +13,12 @@
         <h1>Conecta con nosotros</h1>
         <p>Estamos para atenderte</p>
         <div class="social">
-          <a href="https://www.facebook.com/share/1FguvuUuqT/?mibextid=wwXlfr"> <FacebookIcon /> </a>
-          <a href="https://www.instagram.com/maiky.cookies"> <InstagramIcon /> </a>
+          <a href="https://www.facebook.com/share/1FguvuUuqT/?mibextid=wwXlfr" target="_blank">
+            <FacebookIcon />
+          </a>
+          <a href="https://www.instagram.com/maiky.cookies" target="_blank">
+            <InstagramIcon />
+          </a>
         </div>
       </div>
   </div>
