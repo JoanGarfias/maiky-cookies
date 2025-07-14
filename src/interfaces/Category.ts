@@ -5,5 +5,6 @@ export interface Category{
   name: string,
   products: Product[],
   link: string,
+  img: string,
   icon: string,
 }

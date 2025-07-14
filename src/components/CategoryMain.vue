@@ -1,43 +1,45 @@
 <script setup lang="ts">
     import CardMain from '@/components/CardMain.vue';
-    import GalletasImg from '@/assets/img/galletas.jpeg';
-    import AlfajoresImg from '@/assets/img/alfajores.jpeg';
-    import RolesImg from '@/assets/img/roles.jpeg';
-    import CookieCakeImg from '@/assets/img/cookiecake.jpeg';
+    import { data } from '@/data/products';
 
-    const categories = [
-        {
-            nombre: "Galletas",
-            img: GalletasImg,
-            url: "/catalogo/galletas"
-        },
-        {
-            nombre: "Alfajores",
-            img: AlfajoresImg,
-            url: "/catalogo/alfajores"
-        },
-        {
-            nombre: "Roles",
-            img: RolesImg,
-            url: "/catalogo/roles"
-        },
-        {
-            nombre: "Cookie Cake",
-            img: CookieCakeImg,
-            url: "/catalogo/cookiecake"
-        },
-    ]
+    // import GalletasImg from '@/assets/img/galletas.jpeg';
+    // import AlfajoresImg from '@/assets/img/alfajores.jpeg';
+    // import RolesImg from '@/assets/img/roles.jpeg';
+    // import CookieCakeImg from '@/assets/img/cookiecake.jpeg';
+
+    // const categories = [
+    //     {
+    //         nombre: "Galletas",
+    //         img: GalletasImg,
+    //         url: "/catalogo/galletas"
+    //     },
+    //     {
+    //         nombre: "Alfajores",
+    //         img: AlfajoresImg,
+    //         url: "/catalogo/alfajores"
+    //     },
+    //     {
+    //         nombre: "Roles",
+    //         img: RolesImg,
+    //         url: "/catalogo/roles"
+    //     },
+    //     {
+    //         nombre: "Cookie Cake",
+    //         img: CookieCakeImg,
+    //         url: "/catalogo/cookiecake"
+    //     },
+    // ]
 
 </script>
 
 <template>
     <main class="categories">
         <CardMain
-            v-for="(category, index) in categories"
+            v-for="(category, index) in data"
             :key="index"
-            :nombre="category.nombre"
+            :nombre="category.name"
             :img="category.img"
-            :url="category.url"
+            :url="category.link"
         >
 
         </CardMain>

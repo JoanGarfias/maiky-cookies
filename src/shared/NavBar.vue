@@ -8,6 +8,9 @@
     import Menu from '@/assets/Menu.svg';
 
     import {onMounted, onUnmounted, ref} from 'vue';
+    import { useRoute } from 'vue-router';
+
+    const route = useRoute();
 
     const menuOpen = ref<boolean>(true);
     const menuRef = ref<HTMLElement | null>(null);
@@ -28,6 +31,14 @@
     }
 
     const esMobile = () : boolean => screenSize.value <= 768;
+
+
+    const isActive = (path: string): boolean => {
+      // Si quieres coincidencia exacta para otras rutas
+      if (path === '/') return route.path === '/';
+      // Si es /catalogo, también consideramos /catalogo/:id
+      return route.path.startsWith(path);
+    };
 
     onMounted( () => {
         document.addEventListener('resize', updateWidth);
@@ -56,20 +67,20 @@
 
         <transition name="slide-fade">
             <ul class="nav-list" v-show="menuOpen">
-                <li>
+                <li class="option" :class="{ 'active': isActive('/') }">
                     <RouterLink to ="/">
                         <Home />
                         <p>Inicio</p>
                     </RouterLink>
                 </li>
-                <li>
-                    <RouterLink to="/catalogo">
+                <li class="option" :class="{ 'active': isActive('/catalogo') }">
+                    <RouterLink to="/catalogo" :class="{ 'option-active': isActive('/catalogo') }">
                         <Cookie />
                         <p>Catálogo</p>
                     </RouterLink>
                 </li>
-                <li>
-                    <RouterLink to ="/contacto">
+                <li class="option" :class="{ 'active': isActive('/contacto') }">
+                    <RouterLink to ="/contacto" :class="{ 'option-active': isActive('/contacto') }">
                         <Phone />
                         <p>Contacto</p>
                     </RouterLink>
@@ -134,23 +145,34 @@ ul a:hover{
     gap: 60px;
 }
 
-.nav-list li{
+.option{
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease;
+    padding: 0.6em;
+
+    border-radius: 100px;
 }
 
-.nav-list li:hover{
-    border-radius: 100px;
-    background-color: hsla(222, 57%, 58%, 0.3);
+.option:hover{
+    background-color: hsla(222, 44%, 49%, 0.1);
     transform: scale(1.1);
   }
 
 .nav-list li svg{
     fill: var(--color-primary);
 }
+
+
+.option.active{
+  background-color: hsla(222, 44%, 49%, 0.3);
+  border-radius: 100px;
+}
+
+
+
 
 .cart-opcion{
     display: flex;
