@@ -1,14 +1,14 @@
 <script setup lang="ts">
+    import {onMounted, onUnmounted, ref} from 'vue';
+    import { useRoute } from 'vue-router';
+    import CartProduct from '@/components/Cart/CartElement.vue';
+
     import Logo from '@/assets/Logo.svg';
-    import Cart from '@/assets/Cart.svg';
     import Close from '@/assets/Close.svg';
     import Home from '@/assets/Home.svg';
     import Phone from '@/assets/Phone.svg';
     import Cookie from '@/assets/Cookie.svg';
     import Menu from '@/assets/Menu.svg';
-
-    import {onMounted, onUnmounted, ref} from 'vue';
-    import { useRoute } from 'vue-router';
 
     const route = useRoute();
 
@@ -87,10 +87,7 @@
                 </li>
             </ul>
         </transition>
-        <div class="cart-opcion">
-            <Cart class="cart-icon"/>
-            <p class="cart-counter">2</p>
-        </div>
+        <CartProduct />
     </nav>
   </header>
 </template>
@@ -172,19 +169,6 @@ ul a:hover{
 }
 
 
-
-
-.cart-opcion{
-    display: flex;
-    align-items: center;
-}
-
-.cart-counter{
-    display: absolute;
-    margin-top: 40px;
-    font-size: 20px;
-}
-
 .logo-icon{
     fill: var(--color-primary);
     width: 108px;
@@ -195,13 +179,6 @@ ul a:hover{
     fill: var(--color-primary);
     width: 48px;
     height: 48px;
-}
-
-.cart-icon{
-    align-items: center;
-    width: 48px;
-    height: 48px;
-    fill: var(--color-black);
 }
 
 .hamburger{
@@ -257,15 +234,6 @@ ul a:hover{
         background-color: aliceblue;
         z-index: 999;
 
-    }
-
-    .cart-icon{
-        width: 40px;
-        height: 40px;
-    }
-
-    .cart-icon:hover{
-        cursor: pointer;
     }
 
 

@@ -1,11 +1,10 @@
 <script setup lang="ts">
-
-    interface Props {
-        nombre: string,
-        img: string,
-        url: string,
-    };
-    const category = defineProps<Props>();
+  interface Props {
+    nombre: string,
+    img: string,
+    url: string,
+  };
+  const category = defineProps<Props>();
 
 </script>
 

@@ -5,7 +5,7 @@ import type { Category } from '@/interfaces/Category';
 import type { Product } from '@/interfaces/Product';
 
 import CategoryMenuSection from '@/components/CategoryMenuSection.vue';
-import CardProduct from '@/components/CardProduct.vue';
+import CardProduct from '@/components/Card/CardProduct.vue';
 
 const productList = ref<Product []>(
                                         [
@@ -14,6 +14,7 @@ const productList = ref<Product []>(
                                             name: "",
                                             price: 0,
                                             img: "",
+                                            description: "",
                                           }
                                         ]
                                       );

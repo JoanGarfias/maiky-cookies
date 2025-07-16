@@ -1,34 +1,6 @@
 <script setup lang="ts">
-    import CardMain from '@/components/CardMain.vue';
+    import CardMain from '@/components/Card/CardMain.vue';
     import { data } from '@/data/products';
-
-    // import GalletasImg from '@/assets/img/galletas.jpeg';
-    // import AlfajoresImg from '@/assets/img/alfajores.jpeg';
-    // import RolesImg from '@/assets/img/roles.jpeg';
-    // import CookieCakeImg from '@/assets/img/cookiecake.jpeg';
-
-    // const categories = [
-    //     {
-    //         nombre: "Galletas",
-    //         img: GalletasImg,
-    //         url: "/catalogo/galletas"
-    //     },
-    //     {
-    //         nombre: "Alfajores",
-    //         img: AlfajoresImg,
-    //         url: "/catalogo/alfajores"
-    //     },
-    //     {
-    //         nombre: "Roles",
-    //         img: RolesImg,
-    //         url: "/catalogo/roles"
-    //     },
-    //     {
-    //         nombre: "Cookie Cake",
-    //         img: CookieCakeImg,
-    //         url: "/catalogo/cookiecake"
-    //     },
-    // ]
 
 </script>
 
