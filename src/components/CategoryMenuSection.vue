@@ -88,14 +88,14 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.tabs::after {
+.scroll-fade::after {
   content: "";
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
   width: 40px;
   height: 100%;
-  background: linear-gradient(to left, white, transparent); /* o #fff si fondo blanco */
+  background: linear-gradient(to left, white, transparent);
   pointer-events: none;
 }
 

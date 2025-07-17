@@ -2,6 +2,9 @@ import { ref, computed, watch } from 'vue';
 import type { CartItem } from '@/interfaces/CartItem';
 import type { Product } from '@/interfaces/Product';
 
+import {useToast} from 'vue-toast-notification';
+const $toast = useToast();
+
 const CART_KEY = 'cart-maiky';
 
 const loadCart = () : CartItem[] => {
@@ -13,7 +16,8 @@ const cart = ref<CartItem[]>(loadCart());
 
 watch(cart, () => { /**Actuaización del cart en tiempo real */
   localStorage.setItem(CART_KEY, JSON.stringify(cart.value));
-});
+  console.log('Cart updated:', cart.value);
+}, { deep: true, immediate: true });
 
 export function useCart() {
 
@@ -21,10 +25,22 @@ export function useCart() {
     const existing = cart.value.find(p => p.id === product.id);
     if(existing){
       existing.quantity += quantity;
+      const instance = $toast.open({
+        message: 'Agregaste otro ' + product.name,
+        type: 'info',
+        duration: 2000,
+      });
     }
     else{
       const newProductCart: CartItem = {id: product.id, name: product.name, price: product.price, quantity: 1, image: product.img};
       cart.value.push(newProductCart);
+
+      $toast.clear();
+      const instance = $toast.open({
+        message: 'Agregaste ' + product.name + ' a tu carrito',
+        type: 'info',
+        duration: 2000,
+      });
     }
   };
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { toRef } from 'vue';
-import type { Product } from '@/interfaces/Product';
-import AddCartSvg from '@/assets/img/addCart.svg';
 import { useCart } from '@/composable/useCart';
 
+import type { Product } from '@/interfaces/Product';
+import AddCartSvg from '@/assets/img/addCart.svg';
 
 interface Props {
   product: Product;
@@ -12,6 +12,10 @@ interface Props {
 const props = defineProps<Props>();
 const product = toRef(props, 'product');
 const cartComponent = useCart();
+
+const addProductToCart = (product: Product) => {
+  cartComponent.addItem(product, 1);
+};
 
 </script>
 
@@ -26,7 +30,7 @@ const cartComponent = useCart();
     <div class="product-details">
       <h2 class="product-name">{{ product.name }}</h2>
       <p class="product-price">${{ product.price.toFixed(2) }}</p>
-      <button class="product-button" title="Agregar al carrito" @click="cartComponent.addItem(product, 1)">
+      <button class="product-button" title="Agregar al carrito" @click="addProductToCart(product)">
         <AddCartSvg />
       </button>
     </div>

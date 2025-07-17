@@ -30,6 +30,7 @@
       box-shadow: 0 2px 8px rgba(37, 36, 36, 0.2);
       border-radius: 20px;
       transition: transform 0.5s ease;
+      max-height: 20em;
     }
 
     .card h3{

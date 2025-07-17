@@ -6,16 +6,19 @@ import SliderPromo from '../components/SliderPromo.vue';
 
 <template>
   <SliderPromo />
-  <main>
-    <div class="main-message">
-      <h1>Nuestros postres destacadoss</h1>
-      <h3>¿Cúal se te antoja hoy?</h3>
-    </div>
-    <CategoryMain />
-  </main>
+  <div class="main-message">
+    <h1>Nuestros postres destacadoss</h1>
+    <h3>¿Cúal se te antoja hoy?</h3>
+  </div>
+  <CategoryMain />
 </template>
 
 <style scoped>
+
+main{
+  min-height: 80vh;
+}
+
   .main-message{
     display: flex;
     flex-direction: column;
