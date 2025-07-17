@@ -2,6 +2,9 @@ import { ref, computed, watch } from 'vue';
 import type { CartItem } from '@/interfaces/CartItem';
 import type { Product } from '@/interfaces/Product';
 
+import { useEmail } from '@/composable/useEmail';
+const { sendOrderEmail } = useEmail();
+
 import {useToast} from 'vue-toast-notification';
 const $toast = useToast();
 
@@ -20,6 +23,34 @@ watch(cart, () => { /**Actuaización del cart en tiempo real */
 }, { deep: true, immediate: true });
 
 export function useCart() {
+
+
+  const order = async (customer_name: string, email: string, phone: string) => {
+    const success = await sendOrderEmail({
+      customer_name,
+      email,
+      phone,
+      total: total.value,
+      items: cart.value.map((item) => ({
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+    });
+
+    console.log("Email que se está enviando:", email);
+
+    if (success) {
+      $toast.open({
+        message: 'Pedido enviado correctamente. Nos pondremos en contacto contigo pronto.',
+        type: 'success',
+        duration: 10000,
+      });
+      clearCart();
+    } else {
+      $toast.error('Error al enviar el pedido');
+    }
+  };
 
   const addItem = (product: Product, quantity: number) => {
     const existing = cart.value.find(p => p.id === product.id);
@@ -66,6 +97,7 @@ export function useCart() {
 
   return {
     cart,
+    order,
     addItem,
     removeItem,
     updateQuantity,

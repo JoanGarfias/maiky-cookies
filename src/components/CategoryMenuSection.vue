@@ -77,7 +77,7 @@
   white-space: nowrap;
   padding: 0 1rem;
 
-  justify-content: flex-start;
+  justify-content: center;
   box-shadow: 0 1px rgba(0,0,0,0.6);
   margin-bottom: 2rem;
   gap: 0.5rem;
@@ -126,11 +126,9 @@
   justify-content: center;
   text-align: center;
 
-  min-width: 80px;
-  width: 80px;
-  max-width: 120px;
+  min-width: 100px;
+  width: 120px;
   height: 70px;
-  max-height: 70px;
 
   border-radius: 10px;
 }
@@ -173,10 +171,14 @@ svg{
 
 
 
-@media(min-width: 480px){
+@media(max-width: 480px){
   .tabs{
-    justify-content: center;
+    justify-content: flex-start;
   }
+}
+
+@media(max-width: 480px){
+
   .category{
     min-width: 120px;
     width: 120px;
