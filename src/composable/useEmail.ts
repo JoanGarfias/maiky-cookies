@@ -22,7 +22,6 @@ interface EmailData {
 
 export function useEmail() {
   const sendOrderEmail = async (data: EmailData) => {
-    // EmailJS no soporta objetos complejos, conviértelo a string si es necesario
     const formattedItems = data.items
       .map((item) => `${item.quantity}x ${item.name} - $${item.price}`)
       .join('\n');
