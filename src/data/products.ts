@@ -1,10 +1,12 @@
 import type { Category } from '@/interfaces/Category';
 
+//Categorias (inicio)
 import Cookie from '@/assets/categories/Cookie.svg?raw';
 import Alfajor from '@/assets/categories/alfajor.svg?raw';
 import CookieCake from '@/assets/categories/cake.svg?raw';
 import RolCanela from '@/assets/categories/rol.svg?raw';
 
+//Imagenes de productos
 import GalletasImg from '@/assets/img/galletas.jpeg';
 import AlfajoresImg from '@/assets/img/alfajores.jpeg';
 import RolesImg from '@/assets/img/roles.jpeg';
